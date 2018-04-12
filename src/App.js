@@ -1,31 +1,35 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Form from './Form'
+import Table from './Table'
 
 class App extends Component {
     constructor(props) {
         super(props)
 
-        this._btnClickMeClicked = this._btnClickMeClicked.bind(this)
+        this._updatePhoneBook = this._updatePhoneBook.bind(this)
 
         this.state = {
-            text: "Hello"
+            phoneBook: []
         }
     }
+
+    _updatePhoneBook(item) {
+        this.setState({
+            phoneBook: [...this.state.phoneBook, item]
+        })
+    }
+
 
   render() {
     return (
       <div>
-          <h1 className={"textCenter"}>{this.state.text}</h1>
-          <button onClick={this._btnClickMeClicked}>Click me!</button>
+          <Table pb={this.state.phoneBook}/>
+          <br/><br/>
+          <Form zameZakhireSazi={this._updatePhoneBook}/>
       </div>
     );
-  }
-
-  _btnClickMeClicked() {
-      this.setState({
-          text: "Bye!"
-      });
   }
 }
 
