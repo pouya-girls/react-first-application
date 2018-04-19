@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Form extends Component{
+export default class FormPresentationComponent extends Component{
     constructor(props) {
         super(props)
 
@@ -32,7 +32,7 @@ class Form extends Component{
     }
 
     _btnSaveClicked() {
-        this.props.zameZakhireSazi(this.state)
+        this.props.onSave(this.state)
     }
 
     render() {
@@ -57,5 +57,3 @@ class Form extends Component{
         )
     }
 }
-
-export default Form
