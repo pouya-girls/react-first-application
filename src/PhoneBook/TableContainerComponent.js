@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import TablePresentationComponent from "./TablePresentationComponent";
 import {createDeleteAction, createEditAction} from "../Redux/Actions/PhoneActions";
+import {push} from 'react-router-redux'
 
 const mapStateToProps = state => {
     return {
@@ -11,7 +12,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onDelete: index => dispatch(createDeleteAction(index)),
-        onEdit: index => dispatch(createEditAction(index))
+        onEdit: index =>{
+            dispatch(createEditAction(index))
+            dispatch(push('/edit'))
+        }
     }
 }
 

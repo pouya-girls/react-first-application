@@ -1,6 +1,7 @@
 import {connect} from 'react-redux'
 import {createAddAction, createUpdateAction} from "../Redux/Actions/PhoneActions";
 import EditFormPresentationComponent from "./EditFormPresentationComponent";
+import {push} from 'react-router-redux'
 
 const mapStateToProps = state => {
     const prop = {}
@@ -22,7 +23,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onUpdate: (index, phone) => dispatch(createUpdateAction(index ,phone))
+        onUpdate: (index, phone) =>{
+            dispatch(createUpdateAction(index ,phone))
+            dispatch(push('/'))
+        }
     }
 }
 

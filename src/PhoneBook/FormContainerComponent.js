@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 import FormPresentationComponent from "./FormPresentationComponent";
 import {createAddAction} from "../Redux/Actions/PhoneActions";
 
@@ -10,7 +11,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSave: phone => dispatch(createAddAction(phone))
+        onSave: phone => {
+            dispatch(createAddAction(phone))
+            dispatch(push('/'))
+        }
     }
 }
 
